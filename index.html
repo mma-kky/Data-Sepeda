@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Informasi Sepeda</title>
+</head>
+<body>
+
+    <h2>Data Sepeda</h2>
+
+    <label>Merk Sepeda:</label>
+    <input type="text" id="merk">
+
+    <br><br>
+
+    <label>Jenis Sepeda:</label>
+    <input type="text" id="jenis">
+
+    <br><br>
+
+    <label>Warna Sepeda:</label>
+    <input type="text" id="warna">
+
+    <br><br>
+
+    <button onclick="tampilkan()">Tampilkan Sepeda</button>
+
+    <h3>Informasi Sepeda:</h3>
+    <p id="hasil"></p>
+
+    <script>
+        // Constructor Function
+        function Sepeda(merk, jenis, warna) {
+            this.merk = merk;
+            this.jenis = jenis;
+            this.warna = warna;
+
+            // Method menggunakan return
+            this.infoSepeda = function() {
+                return "Merk: " + this.merk +
+                       "<br>Jenis: " + this.jenis +
+                       "<br>Warna: " + this.warna;
+            };
+
+            // Method menampilkan informasi
+            this.tampilkanInfo = function() {
+                document.write(this.infoSepeda());
+            };
+        }
+
+        // Membuat objek dari input pengguna
+        function tampilkan() {
+            let merk = document.getElementById("merk").value;
+            let jenis = document.getElementById("jenis").value;
+            let warna = document.getElementById("warna").value;
+
+            let sepeda = new Sepeda(merk, jenis, warna);
+
+            document.getElementById("hasil").innerHTML =
+                sepeda.infoSepeda();
+        }
+    </script>
+
+</body>
+</html>
